@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map with Wialon Markers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        // Устанавливаем карту и начальные координаты
+var map = L.map('map').setView([52.3676, 4.9041], 10);
+
+// Добавляем базовый слой карты
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+// Функция для получения данных из Wialon API
+async function getWialonData(token) {
+    const response = await fetch('https://hst-api.wialon.com/wialon/ajax.html?svc=core/search_items&params={"spec":{"itemsType":"avl_unit","propName":"sys_name","propValueMask":"*","sortType":"sys_name"},"force":1,"flags":1,"from":0,"to":0}&sid=' + token);
+    const data = await response.json();
+    return data.items;
+}
+
+// Функция для добавления маркеров на карту
+function addMarkersToMap(units) {
+    units.forEach(unit => {
+        const lat = unit.pos.y;
+        const lon = unit.pos.x;
+        const name = unit.nm;
+        L.marker([lat, lon]).addTo(map).bindPopup(name);
+    });
+}
+
+// Авторизация через токен и добавление маркеров на карту
+const token = '77871cc96f35b9db2ee23e45dafe6f4dA999B145A9F332199F8667353B21C740F1F384D4';
+getWialonData(token).then(units => {
+    addMarkersToMap(units);
+}).catch(error => {
+    console.error('Ошибка при получении данных:', error);
+});
+
+    </script>
+</body>
+</html>
