@@ -6,41 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!--     <script src="https://unpkg.com/leaflet-search/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css" /> -->
     <link rel="stylesheet" href="css/style.css?v=170724">
-    <title>Карта дорог</title>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js"></script>
+ -->    <title>Карта дорог</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div id="mapgps"></div>
-        <main class="page _container">
-            <div class="map__legend">
-                <div>
-                  <input type="checkbox" id="layer1" class="red" checked><label for="layer1">1 категория<br></label>
-                </div>
-                <div>
-                  <input type="checkbox" id="layer2" class="purple" checked><label for="layer2">2 категория<br></label>
-                </div>
-                <div>
-                  <input type="checkbox" id="layer3" class="blue" checked><label for="layer3">2* категория<br></label>
-                </div>
-                <div>
-                  <input type="checkbox" id="layer4" class="green" checked><label for="layer4">3 категория<br></label>
-                </div>
-                <div>
-                  <input type="checkbox" id="layer5" class="black" checked><label for="layer5">тротуары<br></label>
-                </div>
-            </div>
-            <div class="map__weather">
-              <div id="ww_e2172277c1181" v='1.3' loc='id' a='{"t":"horizontal","lang":"ru","sl_lpl":1,"ids":["wl1794"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#0288D1","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'><a href="https://weatherwidget.org/" id="ww_e2172277c1181_u" target="_blank">Widget weather</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_e2172277c1181"></script>
-            </div>
-            <div class="map__weather-min">
-              <div id="ww_c1c771c6c34ea" v='1.3' loc='id' a='{"t":"horizontal","lang":"ru","sl_lpl":1,"ids":["wl1794"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#1976D2","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722","el_whr":3,"el_phw":3}'><a href="https://weatherwidget.org/" id="ww_c1c771c6c34ea_u" target="_blank">Widget weather</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_c1c771c6c34ea"></script>
-            </div>
-            <div class="mapgps__logo">
-                <img src="images/logo_without.svg" alt="">
-            </div>
-        </main>
+    <div id="mapgps" class="mapgps__map">
     </div>
+  <main class="page">
+    <div class="page__container _container">
+      <section class="mappgs">
+        <div class="mapgps__legend">
+          <div>
+            <input type="checkbox" id="layer1" class="red" checked><label for="layer1">1 категория<br></label>
+          </div>
+          <div>
+            <input type="checkbox" id="layer2" class="purple" checked><label for="layer2">2 категория<br></label>
+          </div>
+          <div>
+            <input type="checkbox" id="layer3" class="blue" checked><label for="layer3">2* категория<br></label>
+          </div>
+          <div>
+            <input type="checkbox" id="layer4" class="green" checked><label for="layer4">3 категория<br></label>
+          </div>
+          <div>
+            <input type="checkbox" id="layer5" class="black" checked><label for="layer5">тротуары<br></label>
+          </div>
+      </div>
+      <div class="mapgps__weather">
+        <div id="ww_e2172277c1181" v='1.3' loc='id' a='{"t":"horizontal","lang":"ru","sl_lpl":1,"ids":["wl1794"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"#0288D1","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'><a href="https://weatherwidget.org/" id="ww_e2172277c1181_u" target="_blank">Widget weather</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_e2172277c1181"></script>
+      </div>
+      <div class="mapgps__weather-min">
+        <div id="ww_c1c771c6c34ea" v='1.3' loc='id' a='{"t":"horizontal","lang":"ru","sl_lpl":1,"ids":["wl1794"],"font":"Arial","sl_ics":"one","sl_sot":"celsius","cl_bkg":"#1976D2","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#FFFFFF","cl_sun":"rgba(255,136,7,1)","cl_moon":"rgba(255,255,255,1)","cl_thund":"#FF5722","el_whr":3,"el_phw":3}'><a href="https://weatherwidget.org/" id="ww_c1c771c6c34ea_u" target="_blank">Widget weather</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_c1c771c6c34ea"></script>
+      </div>
+      <div class="mapgps__logo">
+        <img src="images/logo_without.svg" alt="">
+      </div>
+      </section>
+    </div>
+  </main>
     <script src="ad3.js"></script>
     <script src="script2.js"></script>
 </body>
